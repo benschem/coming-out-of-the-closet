@@ -41,6 +41,11 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
+  # Devise told me (Ben) to do this during authentication setup.
+  # Ensure you have defined default url options in your environments files.
+  # Here is an example of default_url_options appropriate for a development environment:
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
