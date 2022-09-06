@@ -11,6 +11,7 @@ class CostumesController < ApplicationController
 
   def new
     @costume = Costume.new
+    authorize @costume
   end
 
   def create
