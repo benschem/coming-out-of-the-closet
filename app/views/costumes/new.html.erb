@@ -6,8 +6,9 @@ Hello
   <%= f.input :description %>
   <%= f.input :price %>
   <%= f.input :clothing, collection: clothing %>
+  <%= f.input :photos, as :file, input_html: {multiple: false} %>
   <%= f.submit %>
 <% end %>
 
-<!-- TODO: Image Upload
+<!-- TODO: Image Upload.
 -->
