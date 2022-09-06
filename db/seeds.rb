@@ -13,12 +13,21 @@ User.destroy_all # if Rails.en.development
 Costume.destroy_all # if Rails.en.development
 clothing = ["suit", "costume", "cosplay"]
 
+User.create!(
+  username: "Music Mates",
+  email: "music@mates.com",
+  password: "123456"
+)
+puts "Created User: Music Mates, Email: music@mates.com, Password: 123456."
+
 5.times do
   user = User.create!(
-    username: Faker::Name.first_name,
-    password: "12345"
+    username: Faker::Name.name,
+    email: Faker::Internet.email,
+    password: "123456"
   )
-  puts "Created User: #{user.username}."
+  puts "\n"
+  puts "Created User: #{user.username}, Email: #{user.email}, Password is #{user.password}."
   3.times do
     costume = Costume.create!(
       name: Faker::Superhero.name,
