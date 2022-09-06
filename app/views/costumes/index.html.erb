@@ -1,0 +1,12 @@
+List of costumes:
+<ol>
+<% @costumes.each do |costume| %>
+  <li><strong>Owner: </strong><%= costume.user.username %></li>
+  <strong>Name: </strong><%= costume.name %><br>
+  <strong>Price: </strong>$<%= costume.price %><br>
+  <strong>Description: </strong><%= costume.description %><br>
+  <strong>Type of clothing: </strong><%= costume.clothing %>
+<% end %>
+</ol>
+
+<%= @costumes %>
