@@ -5,6 +5,10 @@ List of costumes:
   <strong>Name: </strong><%= costume.name %><br>
   <strong>Price: </strong>$<%= costume.price %><br>
   <strong>Description: </strong><%= costume.description %><br>
-  <strong>Type of clothing: </strong><%= costume.clothing %>
+  <strong>Type of clothing: </strong><%= costume.clothing %><br>
+  <%= link_to costume.name, costume_path(costume) %>
 <% end %>
 </ol>
+
+Click here to make a new costume:
+<%= link_to "new costume link", new_costume_path() %>
