@@ -28,12 +28,11 @@ class CostumesController < ApplicationController
     end
   end
 
-  def edit
-
-  end
+  def edit; end
 
   def update
-
+    @costume.update(costume_params) # Will raise ActiveModel::ForbiddenAttributesError
+    redirect_to costume_path(@costume)
   end
 
   def destroy
