@@ -1,10 +1,12 @@
-List of costumes:
+<h1><strong><em>List of costumes</em></strong></h1>
 <ol>
 <% @costumes.each do |costume| %>
-  <li><strong>Owner: </strong><%= costume.user.username %></li>
-  <strong>Name: </strong><%= costume.name %><br>
-  <strong>Price: </strong>$<%= costume.price %><br>
-  <strong>Description: </strong><%= costume.description %><br>
-  <strong>Type of clothing: </strong><%= costume.clothing %>
+  <div class="card">
+    <li><strong>Owner: </strong><%= costume.user.username %></li>
+    <strong>Name: </strong><%= costume.name %><br>
+    <strong>Price: </strong>$<%= costume.price %><br>
+    <strong>Description: </strong><%= costume.description %><br>
+    <strong>Type of clothing: </strong><%= costume.clothing %>
+  </div>
 <% end %>
 </ol>

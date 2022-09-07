@@ -2,11 +2,12 @@ class CostumesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :new]
 
   def index
-    @costumes = Costume.all
+    @costumes = policy_scope(Costume)
   end
 
   def show
     @costume = Costume.find(params[:id])
+    authorize @costume
   end
 
   def new
