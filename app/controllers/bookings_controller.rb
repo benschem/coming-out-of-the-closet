@@ -1,24 +1,20 @@
 class BookingsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :new]
-  before_action :set_costume, only: %i[new create]
-  def new
-    authorize @costume
-  end
+  skip_before_action :authenticate_user!, only: [:index]
 
   def create
+    @costume = Costume.find(params[:costume_id])
     @booking = Booking.new(booking_params)
     @booking.costume = @costume
+    @booking.user = current_user
     authorize @costume
-    @booking.save
-    console.log(@booking)
-    redirect_to costume_path(@costume)
+    if @booking.save
+      redirect_to costume_path(@costume), notice: "Booking saved"
+    else
+      render "costumes/show", status: :unprocessable_entity
+    end
   end
 
   private
-
-  def set_costume
-    @costume = Costume.find(params[:costume_id])
-  end
 
   def booking_params
     params.require(:booking).permit(:start_date, :end_date)
