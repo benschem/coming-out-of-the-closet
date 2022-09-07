@@ -6,8 +6,8 @@
   border-radius: 5%;
   padding: 0;
   transition: all 0.2s;
+  color: black;
   text-decoration: none;
-  color: inherit;
 }
 
 .card-costume > img {
@@ -19,13 +19,14 @@
 }
 
 .card-costume h2 {
+  text-align: left;
   font-size: 14px;
-  color: black;
 }
 
 .card-costume p {
+  text-align: left;
   font-size: 10px;
-  color: black;
+  margin-bottom: 2px;
 }
 
 .card-costume .card-costume-info {
