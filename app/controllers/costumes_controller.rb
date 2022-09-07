@@ -39,12 +39,12 @@ class CostumesController < ApplicationController
   def destroy
     @costume = Costume.find(params[:id])
     @costume.destroy
-    redirect_to costume_path, status: see_other
+    redirect_to costume_path, status: :see_other
   end
 
   private
 
   def costume_params
-    params.require(:costume).permit(:name, :description, :price, :clothing, :photos)
+    params.require(:costume).permit(:name, :description, :price, :clothing, :photo)
   end
 end

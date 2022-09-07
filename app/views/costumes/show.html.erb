@@ -1,7 +1,10 @@
 <h1>Costume Name: <%= @costume.name %></h1>
-    <img src="https://images.fun.com.au/products/33319/1-1/pirate-flag-fortune-teller-costume-for-women-update.jpg" alt="pirate" class="h-25 w-25">
+    <%= cl_image_tag @costume.photo.key, height: 500, width: 350 %>
 <p>Description:<br><%= @costume.description %></p>
 <h4>Price: $<%= @costume.price %></h4>
 <h5>Owner: <%= @costume.user.username %></h5>
-
 <%= render 'bookings/new' %>
+<%= link_to "Delete",
+  costume_path(@costume),
+  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+%>
