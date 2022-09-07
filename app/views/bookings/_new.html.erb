@@ -1,0 +1,9 @@
+<h1>Book <%= @costume.name %></h1>
+<%= simple_form_for [@costume, @booking] do |f| %>
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
+  <%= f.submit "Book", class: "btn btn-primary" %>
+<% end %>
+
+ <%# to use this, add the below line: %>
+ <%# <%= render 'bookings/new' %>

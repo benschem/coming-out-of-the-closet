@@ -1,0 +1,14 @@
+Hello
+
+<%= simple_form_for(@costume) do |f| %>
+  <% clothing = ["suit", "costume", "cosplay"] %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :price %>
+  <%= f.input :clothing, collection: clothing %>
+  <%= f.input :photo, as: :file, input_html: {multiple: false} %>
+  <%= f.submit %>
+<% end %>
+
+<!-- TODO: Image Upload.
+-->
