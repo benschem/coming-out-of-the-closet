@@ -5,10 +5,10 @@
 }
 
 .banner h1 {
-  margin: 0;
+  margin-bottom: 40px;
   color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 32px;
+  font-size: 69px;
   font-weight: bold;
 }
 
@@ -20,11 +20,31 @@
 }
 
 .container {
-  display: flex;
-  align-items: center;
+  text-align: center;
 }
 
-.container h2, p, btn {
+.container h1, h2, p {
   color: white;
-  border: white;
+}
+
+.container p {
+  padding-bottom: 20px;
+}
+
+.btn-home {
+  color: white;
+  text-decoration: none;
+  margin: 4px;
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 15px 20px;
+  transition: all, 0.2s;
+}
+
+.btn-home:hover {
+
+  box-shadow: 1px 1px 1px grey;
+  transform: translateY(-0.25em);
+  color: FB6F92;
+  background-color: white;
 }
