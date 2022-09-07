@@ -7,6 +7,7 @@ class CostumesController < ApplicationController
   end
 
   def show
+    @booking = Booking.new
     @costume = Costume.find(params[:id])
     authorize @costume
   end

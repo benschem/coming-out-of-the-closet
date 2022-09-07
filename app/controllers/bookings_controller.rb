@@ -2,14 +2,15 @@ class BookingsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :new]
   before_action :set_costume, only: %i[new create]
   def new
-    # Don't forget to add @costume in simple form
-    @booking = Booking.new
+    authorize @costume
   end
 
   def create
     @booking = Booking.new(booking_params)
-    @booking.costume = @booking
+    @booking.costume = @costume
+    authorize @costume
     @booking.save
+    console.log(@booking)
     redirect_to costume_path(@costume)
   end
 
