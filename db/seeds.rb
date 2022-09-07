@@ -13,11 +13,11 @@ puts "Cleaning database..."
 User.destroy_all # if Rails.en.development
 Costume.destroy_all # if Rails.en.development
 clothing = ["suit", "costume", "cosplay"]
-pic1 = "./app/assets/images/pirate.jpg"
-pic2 = "./app/assets/images/IU.png"
-pic3 = "./app/assets/images/jinx.jpg"
-pic4 = "./app/assets/images/pj.png"
-pic5 = "./app/assets/images/suit.jpg"
+pic1 = "https://images.fun.com.au/products/33319/1-1/pirate-flag-fortune-teller-costume-for-women-update.jpg"
+pic2 = "https://i.redd.it/f5ibms1p43e91.png"
+pic3 = "https://www-s.mlo.me/upen/v/2021/202112/20211229/202112291145253525327.jpg"
+pic4 = "https://www.aussieblokesclothes.com.au/wp-content/uploads/2022/03/Cosy-Winter-PJs-Sizes-Small-to-7XL-Stone-Polka-Dots.jpg"
+pic5 = "https://static.theblacktux.com/products/suits/light-grey-suit/1_161129_TBT_Ecom_Light_Gray_Suit_2_1262_w1_1812x1875.jpg"
 photos = [pic1, pic2, pic3, pic4, pic5]
 
 User.create!(
@@ -43,8 +43,8 @@ puts "Created User: Music Mates, Email: music@mates.com, Password: 123456."
       clothing: clothing.sample,
       user: user
     )
-    # file = URI.open(photos[rand(0..4)])
-    costume.photo.attach(io: File.open(photos[rand(0..4)]), filename: "example", content_type: "image/png")
+    file = URI.open(photos[rand(0..4)])
+    costume.photo.attach(io: file, filename: "example", content_type: "image/png")
     costume.save
     puts "Created Costume: #{costume.name}, a #{costume.clothing} for #{costume.user.username} #{costume.price}."
   end
