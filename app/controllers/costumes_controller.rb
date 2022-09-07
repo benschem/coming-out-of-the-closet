@@ -1,12 +1,14 @@
 class CostumesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :new]
+  skip_before_action :authenticate_user!, only: [:index]
+  include Pundit::Authorization
 
   def index
-    @costumes = Costume.all
+    @costumes = policy_scope(Costume)
   end
 
   def show
     @costume = Costume.find(params[:id])
+    authorize @costume
   end
 
   def new
@@ -17,6 +19,7 @@ class CostumesController < ApplicationController
   def create
     @costume = Costume.new(costume_params)
     @costume.user = current_user
+    authorize @costume
     if @costume.save
       redirect_to costume_path(@costume)
     else
