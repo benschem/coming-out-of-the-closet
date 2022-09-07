@@ -6,6 +6,8 @@
   border-radius: 5%;
   padding: 0;
   transition: all 0.2s;
+  text-decoration: none;
+  color: inherit;
 }
 
 .card-costume > img {
@@ -13,6 +15,7 @@
   height: 250px;
   align-items: center;
   object-fit: cover;
+  object-position: top;
 }
 
 .card-costume h2 {
