@@ -1,0 +1,45 @@
+.card-costume {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 2px #FB6F92;
+  margin: 10px;
+  border-radius: 5%;
+  padding: 0;
+  transition: all 0.2s;
+}
+
+.card-costume > img {
+  width: 110%;
+  height: 250px;
+  align-items: center;
+  object-fit: cover;
+}
+
+.card-costume h2 {
+  font-size: 14px;
+}
+
+.card-costume p {
+  font-size: 10px;
+}
+
+.card-costume .card-costume-info {
+  height: 40%;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+}
+
+.card-costume-pricing {
+  margin-top: 0;
+}
+
+.card-costume:hover {
+  background-color: #FB6F92;
+  color: white;
+  box-shadow: 0 0.5em 0.5em -0.4em #FB6F92;
+  transform: translateY(-0.25em);
+  cursor: pointer;
+}

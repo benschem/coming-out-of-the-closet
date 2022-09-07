@@ -1,14 +1,67 @@
-List of costumes:
-<ol>
-<% @costumes.each do |costume| %>
-  <li><strong>Owner: </strong><%= costume.user.username %></li>
-  <strong>Name: </strong><%= costume.name %><br>
-  <strong>Price: </strong>$<%= costume.price %><br>
-  <strong>Description: </strong><%= costume.description %><br>
-  <strong>Type of clothing: </strong><%= costume.clothing %><br>
-  <%= link_to costume.name, costume_path(costume) %>
-<% end %>
-</ol>
+<h1>List of All Costumes</h1>
 
-Click here to make a new costume:
+<div class="container">
+  <div class="index-cards">
+    <% @costumes.each do |costume| %>
+      <div class="card-costume">
+        <img src="https://images.unsplash.com/photo-1522787345986-d5c7885a889e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80">
+        <div class="card-costume-info">
+          <div>
+            <h2><strong><%= costume.name %></strong></h2>
+            <p><strong><%= costume.clothing %></strong></p>
+            <p><%= costume.description %></p>
+          </div>
+          <h2 class="card-costume-pricing"><strong>$<%= costume.price %></strong></h2>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="footer">
+  <ul class="list-inline">
+    <li><a href="" target="_blank" class="icons"><i class = "fa-brands fa-facebook"></i></a></li>
+    <li><a href="" target="_blank" class="icons"><i class = "fa-brands fa-twitter"></i></a></li>
+    <li><a href="" target="_blank" class="icons"><i class = "fa-brands fa-instagram"></i></a></li>
+    <li><a href="" target="_blank" class="icons"><i class = "fa-brands fa-github"></i></a></li>
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div id="carouselExampleControls" class="carousel slide" data-bs-ride="false">
+  <div class="carousel-inner">
+    <% @costumes.each do |costume| %>
+      <div class="carousel-item <%= costume == @costumes[0] ? "active" : "" %>">
+        <div class="card-costume" class="d-block w-100">
+          <img src="https://images.unsplash.com/photo-1522787345986-d5c7885a889e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80">
+          <div class="card-costume-info">
+            <div>
+              <h2><strong><%= costume.name %></strong></h2>
+              <p><%= costume.description %></p>
+            </div>
+            <h2 class="card-costume-pricing"><strong>$<%= costume.price %></strong></h2>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
 <%= link_to "new costume link", new_costume_path() %>
