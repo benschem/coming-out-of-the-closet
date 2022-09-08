@@ -1,0 +1,30 @@
+.search .btn {
+  font-weight: 700;
+  background-color: #fb6f92;
+  color: white;
+  border: 2px solid #fb6f92;
+  border-radius: 0 15px 15px 0;
+  transition: all 0.15s;
+  flex-shrink: 0;
+}
+
+.search .btn:hover {
+  background-color: white;
+  color: #fb6f92;
+  transform: scale(1.04);
+}
+
+.search {
+  margin: 10px 260px 0 180px;
+  display: flex;
+  flex-direction: row;
+}
+
+.search-bar {
+  margin: auto 0 auto 110px;
+  width: 80%;
+}
+
+.search-bar .form-control {
+  background-color: white;
+}

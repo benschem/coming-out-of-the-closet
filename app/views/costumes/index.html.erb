@@ -1,4 +1,31 @@
-<h1>List of All Costumes</h1>
+<h1>Be you</h1>
+<div class="search">
+<div class="search-bar">
+<%= form_with url: costumes_path, method: :get, class: "d-flex" do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Bring out the real you"
+  %>
+  <%= submit_tag "Find Your Fit", class: "btn"%>
+  </div>
+<% end %>
+</div>
+
+<%= form_with url: costumes_path, method: :get do %>
+<%= select_tag :filter, options_for_select([ "Show All", "Suits", "Costumes", "Cosplays" ], "Show All")
+  %>
+<%= submit_tag "Filter", class: "btn" %>
+<% end %>
+
+<!--
+<select name="Costume Type" class="category">
+  <option calue="all">See All</option>
+  <option value="costume">Costumes</option>
+  <option value="suit">Suits</option>
+  <option value="cosplay">Cosplay</option>
+</select>
+-->
 
 <div class="container">
   <div class="index-cards">

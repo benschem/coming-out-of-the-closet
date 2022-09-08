@@ -24,10 +24,7 @@
       <%= render 'bookings/new' %>
       <div class="col">
       <h1><%= @costume.name %></h1>
-      <%= link_to "Delete",
-        costume_path(@costume),
-        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-      %>
+
     </div>
   </div>
 
