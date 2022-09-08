@@ -1,46 +1,60 @@
 <div class="container">
-<h2>Hello<%= current_user.username %></h2>
-
-<h3>Current Bookings:</h3>
+  <div class="row">
+    <h1>Hello <%= current_user.username %></h1>
 <% if current_user.bookings.present? %>
-  <ul>
+    <h2>You're borrowing these!</h2>
+    <h3>I'm sure they'll look good on you.</h3>
+  </div>
+  <div class="row">
     <% current_user.bookings.each do |booking|%>
-      <%= cl_image_tag booking.costume.photo.key %></li>
-      <%= booking.costume.name %><br>
-      Borrowed on: <%= booking.start_date.strftime("%A %B %e %Y") %><br>
-      Needs to be returned by: <%= booking.end_date.strftime("%A %B %e %Y") %><br>
-      Status: <%= booking.status %>
-    <% end %>
+      <div class="col card-costume-info">
+        <%= cl_image_tag booking.costume.photo.key %>
+      </div>
+      <div class="col">
+        <h4><%= booking.costume.name %></h4>
+        <p>This booking is <%= booking.status %>.</p>
+        <p>Borrow it on <%= booking.start_date.strftime("%A %B %e, %Y") %>.</p>
+        <p>Return it by <%= booking.end_date.strftime("%A %B %e, %Y") %>.</p>
+        <p>It's costing you $<%= booking.costume.price %> per night.</p>
+      </div>
   <% else %>
-    <%= "No bookings yet. Your clothes just need some time and encouragement." %>
-<% end %>
-  </ul>
-</p>
-
-<h3>Your costumes</h3>
-<p>
-<% if current_user.costumes.present? %>
-  <% current_user.costumes.each do |cos| %>
-    <%= cos.name %><br>
-    <%=image_tag cos.photo %><br>
-    <%= cos.description %><br>
-    <%= cos.price %><br>
-    <% if cos.bookings.present?%>
-      <% cos.bookings.each do |booking| %>
-      Start Date: <%= booking.start_date.strftime("%A %B %e %Y") %> <br>
-      Due Date: <%= booking.end_date.strftime("%A %B %e %Y") %> <br>
-      <%= booking.status %> <br>
-        <% if booking.status == "pending" %>
-          <%= link_to "Approve", booking_path(booking, status: 1), data: { turbo_method: :patch } %> <br>
-          <%= link_to "Decline", booking_path(booking, status: 2), data: { turbo_method: :patch } %> <br>
-        <% else %>
-        <%= "Available" %><br>
-          <%= link_to "Edit", edit_costume_path(cos) %><br>
-          <%= link_to "Remove", costume_path(cos), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %><br>
-        <% end %>
-      <% end %>
-    <% end %>
+    <%= "Go! Get out there and pick a New You!" %>
   <% end %>
 <% end %>
-</p>
+  </div>
+  <div class="row">
+    <h2>You're lending these out!</h2>
+    <h3>You pulled these out of your closet.</h3>
+  </div>
+  <div class="row">
+    <% current_user.costumes.each do |costume| %>
+      <div class="col card-costume-info">
+        <%=image_tag costume.photo %>
+      </div>
+      <div class="col">
+        <h4><%= costume.name %></h4>
+        <div class="btn btn-success"><%= link_to "Edit", edit_costume_path(costume) %></div>
+        <div class="btn btn-danger"><%= link_to "Delete", costume_path(costume), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></div>
+        <p><%= costume.description %></p>
+        <p>You're asking $<%= costume.price %> per night.</p>
+
+      </div>
+      <div class="col">
+        <h4><%= costume.name %>'s Bookings<h4>
+        <% if costume.bookings.exist? %>
+          <% costume.bookings.each do |booking| %>
+            <p>This booking is <%= booking.status %>.</p>
+            <p>They want it on <%= booking.start_date.strftime("%A %B %e, %Y") %>.</p>
+            <p>They give it back on <%= booking.end_date.strftime("%A %B %e, %Y") %>.</p>
+            <% if booking.status == "pending" %>
+              <div class="btn btn-primary"><%= link_to "Approve", booking_path(booking, status: 1), data: { turbo_method: :patch } %></div>
+              <div class="btn btn-danger"><%= link_to "Decline", booking_path(booking, status: 2), data: { turbo_method: :patch } %></div>
+            <% end %>
+          <% end %>
+        <% else %>
+          <p>No bookings yet. Your clothes just need some time and encouragement.</p>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
 </div>
