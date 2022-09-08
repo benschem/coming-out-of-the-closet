@@ -28,7 +28,10 @@ class CostumesController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    @costume = Costume.find(params[:id])
+    authorize @costume
+  end
 
   def update
     @costume.update(costume_params) # Will raise ActiveModel::ForbiddenAttributesError
@@ -37,6 +40,7 @@ class CostumesController < ApplicationController
 
   def destroy
     @costume = Costume.find(params[:id])
+    authorize @costume
     @costume.destroy
     redirect_to costume_path, status: :see_other
   end
