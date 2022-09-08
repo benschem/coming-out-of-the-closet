@@ -1,5 +1,6 @@
-
+<div class="container">
 <h2>Hello<%= current_user.username %></h2>
+
 
 
 <h3>These are your bookings:</h3>
@@ -8,27 +9,41 @@
     <li class="card-costume-info">
     <%= cl_image_tag booking.costume.photo.key %></li>
     <%= booking.costume.name %><br>
-    Borrowed on: <%= booking.start_date %><br>
-    Needs to be returned by: <%= booking.end_date %><br>
+    Borrowed on: <%= booking.start_date.strftime("%A %B %e %Y") %><br>
+    Needs to be returned by: <%= booking.end_date.strftime("%A %B %e %Y") %><br>
 
     Status:
     <%= booking.status %>
+
     <% end %>
   </ul>
-
-<h3>These are your costumes:</h3>
-
-<p>
-  <% current_user.costumes.each do |costume| %>
-    <%= costume.name %><br>
-    <%=image_tag costume.photo %><br>
-    <%= costume.description %><br>
-    <%= costume.price %>
-  <% end %>
 </p>
 
-Status
-available
-pending
-approved / rejected
-in use
+<h3>These are your costumes</h3>
+costume -> bookings
+<p>
+<% current_user.costumes.each do |cos| %>
+  <%= cos.name %><br>
+  <%=image_tag cos.photo %><br>
+  <%= cos.description %><br>
+  <%= cos.price %><br>
+
+  <% if cos.bookings.present?%>
+   <% cos.bookings.each do |booking| %>
+    Start Date: <%= booking.start_date.strftime("%A %B %e %Y") %> <br>
+    Due Date: <%= booking.end_date.strftime("%A %B %e %Y") %> <br>
+    <%= booking.status %> <br>
+    <% if booking.status == "pending" %>
+        <%= link_to "Approve", booking_path(booking, status: 1), data: { turbo_method: :patch } %> <br>
+        <%= link_to "Decline", booking_path(booking, status: 2), data: { turbo_method: :patch } %> <br>
+    <% else %>
+      <%= "Available" %><br>
+      <%= link_to "Edit", edit_costume_path(cos) %><br>
+      <%= link_to "Remove", costume_path(cos), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %><br>
+    <% end %>
+   <% end %>
+  <% end %>
+<% end %>
+</p>
+
+</div>

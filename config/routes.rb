@@ -12,4 +12,3 @@ Rails.application.routes.draw do
   resources :bookings, only: [:update]
   get "/dashboard", to: "pages#dashboard"
 end
-# /dashboard - know who you are
