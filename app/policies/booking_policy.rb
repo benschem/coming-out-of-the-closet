@@ -14,9 +14,9 @@ class BookingPolicy < ApplicationPolicy
     true
   end
 
-  def show?
-    true # <= any user can see it
+  def update?
+    # true <= any user can see it
     # false <= no user can see it
-    # record.user == current_user <= only the owner of the costume can see it
+    record.user == current_user # <= only the owner of the booking can see it
   end
 end

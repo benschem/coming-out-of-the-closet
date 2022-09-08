@@ -6,7 +6,7 @@ class CostumePolicy < ApplicationPolicy
     end
   end
 
-  def new?
+  def show?
     true
   end
 
@@ -14,9 +14,15 @@ class CostumePolicy < ApplicationPolicy
     true
   end
 
-  def show?
-    true # <= any user can see it
-    # false <= no user can see it
-    # record.user == current_user <= only the owner of the costume can see it
+  def update?
+    record.user == current_user
+  end
+
+  def edit?
+    record.user == current_user
+  end
+
+  def destroy?
+    record.user == current_user
   end
 end
