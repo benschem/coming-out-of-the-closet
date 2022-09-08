@@ -7,11 +7,12 @@
         <%= cl_image_tag "https://cdn-icons-png.flaticon.com/512/1124/1124043.png" %>
       <% end %>
     </div>
-    <div class="col d-flex justify-content-around text-center">
+    <div class="col">
       <h1><%= @costume.name %></h1>
       <h4>$<%= @costume.price %> per night</h4>
       <h4>The owner is <%= @costume.user.username %></h4>
       <p><%= @costume.description %></p>
       <%= render 'bookings/new' %>
+    </div>
   </div>
 </div>
