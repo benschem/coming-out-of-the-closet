@@ -9,7 +9,7 @@
     "flatpickr": "^4.6.13",
     "jquery": "^3.6.1",
     "popper.js": "^1.16.1",
-    "stimulus-flatpickr": "^1.4.0",
+    "stimulus-flatpickr": "^3.0.0-0",
     "webpack": "^5.74.0",
     "webpack-cli": "^4.10.0"
   },

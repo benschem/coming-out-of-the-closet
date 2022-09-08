@@ -9,11 +9,12 @@ import Flatpickr from 'stimulus-flatpickr';
 // import 'flatpickr/dist/themes/dark.css'
 
 // create a new Stimulus controller by extending stimulus-flatpickr wrapper controller
-export default class extends Controller {
-  initialize() {
+export default class extends Flatpickr {
+  connect() {
+    console.log('connec')
     // sets your language (you can also set some global setting for all time pickers)
     this.config = {
-      locale: English
+      enableTime: true,
     }
   }
 
