@@ -11,22 +11,20 @@
     Borrowed on: <%= booking.start_date %><br>
     Needs to be returned by: <%= booking.end_date %><br>
 
-    Status =
+    Status:
     <%= booking.status %>
     <% end %>
   </ul>
-</p>
-<h3>These are your costumes</h3>
+
+<h3>These are your costumes:</h3>
 
 <p>
-<% current_user.costumes.each do |cos| %>
-  <%= cos.name %><br>
-  <%=image_tag cos.photo %><br>
-  <%= cos.description %><br>
-  <%= cos.price %>
-
-
-<% end %>
+  <% current_user.costumes.each do |costume| %>
+    <%= costume.name %><br>
+    <%=image_tag costume.photo %><br>
+    <%= costume.description %><br>
+    <%= costume.price %>
+  <% end %>
 </p>
 
 Status
