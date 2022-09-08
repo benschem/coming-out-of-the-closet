@@ -1,0 +1,56 @@
+#login {
+  margin-top: 30px;
+  color: #fb6f92;
+  font-weight: 700;
+  text-align: center;
+}
+
+.inputs {
+  margin: 0 auto;
+  width: 25%;
+}
+
+.form-actions {
+  margin: 0 auto;
+  width: 20%;
+  text-align: center;
+}
+
+.form-actions .btn {
+  margin: 10px auto;
+  padding: 10px 15px;
+  text-align: center;
+  font-weight: 700;
+  color: #fb6f92;
+  border: 2px solid #fb6f92;
+  width: 66%;
+  transition: all 0.15s;
+}
+
+.form-actions .btn:hover {
+  color: white;
+  background-color: #fb6f92;
+  transform: scale(1.04);
+}
+
+.help-user {
+  margin: 10px auto;
+  display: flex;
+  flex-direction: column;
+  height: 10%;
+  width: 25%;
+  justify-content: center;
+  align-items: right;
+}
+
+.help-user a {
+  text-decoration: none;
+  text-align: right;
+  color: #fb6f92;
+}
+
+
+.help-user a:hover {
+  text-decoration: underline;
+  color: #fb6f92;
+}
