@@ -1,5 +1,5 @@
 <h1>Costume Name: <%= @costume.name %></h1>
-    <%= cl_image_tag @costume.photo.key, height: 500, width: 350 %>
+   <div class= "image"><%= cl_image_tag @costume.photo.key, height: 500, width: 350%></div>
 <p>Description:<br><%= @costume.description %></p>
 <h4>Price: $<%= @costume.price %></h4>
 <h5>Owner: <%= @costume.user.username %></h5>
