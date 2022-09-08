@@ -1,0 +1,7 @@
+<h2>Hello<%= current_user.username %></h2>
+
+<h3>These are your bookings:</h3>
+<p><%= current_user.bookings.each do |booking|%>
+<%= booking %>
+<% end %></p>
+These are your costumes
