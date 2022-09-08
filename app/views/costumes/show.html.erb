@@ -1,7 +1,12 @@
 <div class="container">
   <div class="row mt-3">
     <div class="col">
-      <%= cl_image_tag @costume.photo.key, height: 500, width: 350, class:"rounded shadow" %>
+      <% if @costume.photo.attached?  %>
+          <%= cl_image_tag @costume.photo.key, height: 500, width: 350, class:"rounded shadow" %>
+        <% else %>
+          <%= cl_image_tag "https://cdn-icons-png.flaticon.com/512/1124/1124043.png" %>
+      <% end %>
+
     </div>
   <div class="col">
       <h1><%= @costume.name %></h1>

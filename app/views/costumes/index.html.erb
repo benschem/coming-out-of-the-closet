@@ -4,7 +4,11 @@
   <div class="index-cards">
     <% @costumes.each do |costume| %>
       <%= link_to costume_path(costume), class: "card-costume" do %>
-        <%= cl_image_tag costume.photo.key %>
+        <% if costume.photo.attached?  %>
+          <%= cl_image_tag costume.photo.key %>
+        <% else %>
+          <%= cl_image_tag "https://cdn-icons-png.flaticon.com/512/1124/1124043.png" %>
+        <% end %>
         <div class="card-costume-info">
           <div>
             <h2><strong><%= costume.name %></strong></h2>
