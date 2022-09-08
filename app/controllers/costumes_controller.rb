@@ -4,6 +4,19 @@ class CostumesController < ApplicationController
 
   def index
     @costumes = policy_scope(Costume)
+    if params[:query].present?
+      @costumes = Costume.supersearch(params[:query])
+    else
+      @costumes = Costume.all
+    end
+
+    if params[:filter].present?
+      if params[:filter] == "Show All"
+        @costumes = Costume.all
+      else
+        @costumes = Costume.where("clothing ILIKE ?", "%#{params[:filter]}%")
+      end
+    end
   end
 
   def show

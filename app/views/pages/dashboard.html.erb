@@ -1,6 +1,7 @@
 <div class="container">
   <div class="row">
     <h1>Hello <%= current_user.username %></h1>
+<% if current_user.bookings.present? %>
     <h2>You're borrowing these!</h2>
     <h3>I'm sure they'll look good on you.</h3>
   </div>
@@ -16,7 +17,10 @@
         <p>Return it by <%= booking.end_date.strftime("%A %B %e, %Y") %>.</p>
         <p>It's costing you $<%= booking.costume.price %> per night.</p>
       </div>
-    <% end %>
+  <% else %>
+    <%= "Go! Get out there and pick a New You!" %>
+  <% end %>
+<% end %>
   </div>
   <div class="row">
     <h2>You're lending these out!</h2>
@@ -48,7 +52,7 @@
             <% end %>
           <% end %>
         <% else %>
-          <p>No bookings yet.</p>
+          <p>No bookings yet. Your clothes just need some time and encouragement.</p>
         <% end %>
       </div>
     <% end %>
