@@ -13,17 +13,18 @@
   </head>
 
   <body>
-    <%= render "shared/navbar" %>
-    <%= yield %>
-    <%= render "shared/flashes" %>
-    <footer class="footer-home">
-      <ul class="list-inline">
-        <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley" target="_blank" class="icons"><i class = "fa-brands fa-facebook"></i></a></li>
-        <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley" target="_blank" class="icons"><i class = "fa-brands fa-twitter"></i></a></li>
-        <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley" target="_blank" class="icons"><i class = "fa-brands fa-instagram"></i></a></li>
-        <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley" target="_blank" class="icons"><i class = "fa-brands fa-github"></i></a></li>
-      </ul>
-    </footer>
-
+    <div class="content-wrapper">
+      <%= render "shared/navbar" %>
+      <%= yield %>
+      <%= render "shared/flashes" %>
+      <footer class="footer-home">
+        <ul class="list-inline">
+          <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley" target="_blank" class="icons"><i class = "fa-brands fa-facebook"></i></a></li>
+          <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley" target="_blank" class="icons"><i class = "fa-brands fa-twitter"></i></a></li>
+          <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley" target="_blank" class="icons"><i class = "fa-brands fa-instagram"></i></a></li>
+          <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley" target="_blank" class="icons"><i class = "fa-brands fa-github"></i></a></li>
+        </ul>
+      </footer>
+    </div>
   </body>
 </html>
