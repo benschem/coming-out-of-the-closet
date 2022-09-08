@@ -1,11 +1,13 @@
-<h4>Book <%= @costume.name %></h4>
+<h4>Book it:</h4>
 <%= simple_form_for [@costume, @booking] do |f| %>
+  <p>Borrow it on:</p>
   <%= f.text_field :start_date,
               data: {
                 controller: "flatpickr",
                 flatpickr_date_format: "Y-m-d",
                 flatpickr_min_date: Time.zone.now
               } %>
+  <p>Return it on:</p>
   <%= f.text_field :end_date,
               data: {
                 controller: "flatpickr",
