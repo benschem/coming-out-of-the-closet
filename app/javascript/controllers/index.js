@@ -6,3 +6,9 @@ import { application } from "./application"
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import StimulusFlatpickrController from "./stimulus_flatpickr_controller"
+application.register("stimulus-flatpickr", StimulusFlatpickrController)
+
+import FlatpickrController from "./flatpickr_controller"
+application.register("flatpickr", FlatpickrController)

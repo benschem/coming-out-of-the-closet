@@ -1,7 +1,17 @@
 <h4>Book <%= @costume.name %></h4>
 <%= simple_form_for [@costume, @booking] do |f| %>
-  <%= f.input :start_date %>
-  <%= f.input :end_date %>
+  <%= f.input :start_date,
+              data: {
+                controller: "flatpickr",
+                flatpickr_date_format: "Y-m-d",
+                flatpickr_min_date: Time.zone.now
+              } %>
+  <%= f.input :end_date,
+              data: {
+                controller: "flatpickr",
+                flatpickr_date_format: "Y-m-d",
+                flatpickr_min_date: Time.zone.now
+              } %>
   <%= f.submit "Book", class: "btn btn-primary" %>
 <% end %>
 
