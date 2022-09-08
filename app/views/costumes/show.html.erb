@@ -1,10 +1,19 @@
-<h1>Costume Name: <%= @costume.name %></h1>
-    <%= cl_image_tag @costume.photo.key, height: 500, width: 350 %>
-<p>Description:<br><%= @costume.description %></p>
-<h4>Price: $<%= @costume.price %></h4>
-<h5>Owner: <%= @costume.user.username %></h5>
-<%= render 'bookings/new' %>
-<%= link_to "Delete",
-  costume_path(@costume),
-  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-%>
+<div class="container">
+  <div class="row mt-3">
+    <div class="col">
+      <%= cl_image_tag @costume.photo.key, height: 500, width: 350 %>
+    </div>
+    <div class="col">
+      <h1><%= @costume.name %></h1>
+      <%= link_to "Delete",
+        costume_path(@costume),
+        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+      %>
+      <h4>Price: $<%= @costume.price %></h4>
+      <h5>Owner: <%= @costume.user.username %></h5>
+      <p><%= @costume.description %></p>
+      <%= render 'bookings/new' %>
+    </div>
+  </div>
+
+</div>
