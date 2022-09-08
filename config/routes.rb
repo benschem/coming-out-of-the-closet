@@ -10,5 +10,6 @@ Rails.application.routes.draw do
     resources :bookings, only: %i[new create]
   end
   resources :bookings, only: [:update]
-  resources :dashboard, only: [:index]
+  get "/dashboard", to: "pages#dashboard"
 end
+# /dashboard - know who you are
