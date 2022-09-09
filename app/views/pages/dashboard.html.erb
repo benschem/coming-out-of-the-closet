@@ -1,22 +1,27 @@
-<div class="container">
-  <div class="row">
+<div class="lendboard">
+  <div class="intro">
     <h1>Hello <%= current_user.username %></h1>
     <% if current_user.bookings.present? %>
-      <h2>You're borrowing these!</h2>
-      <h3>I'm sure they'll look good on you.</h3>
+      <h2>You're borrowing these! - I'm sure they'll look good on you.</h2>
   </div>
-  <div class="row">
+  <div class="bookings">
       <% current_user.bookings.each do |booking|%>
-        <div class="col card-costume-info">
-          <%= cl_image_tag booking.costume.photo.key %>
+      <div class="booking-card">
+        <div class="col costume-photo">
+          <%= cl_image_tag booking.costume.photo.key, height: 300, width: 300, class: "rounded shadow cos" %>
         </div>
-        <div class="col">
+        <div class="col costume-desc">
           <h4><%= booking.costume.name %></h4>
-          <p>This booking is <%= booking.status %>.</p>
+          <% if booking.status.nil? %>
+           <p>This booking is pending.</p>
+          <% else %>
+            <p>This booking is <%= booking.status %>.</p>
+          <% end %>
           <p>Borrow it on <%= booking.start_date.strftime("%A %B %e, %Y") %>.</p>
           <p>Return it by <%= booking.end_date.strftime("%A %B %e, %Y") %>.</p>
           <p>It's costing you $<%= booking.costume.price %> per night.</p>
         </div>
+      </div>
       <% end %>
     <% else %>
         <div class="col">
@@ -25,13 +30,17 @@
         </div>
     <% end %>
   </div>
-  <div class="row">
+
+<div class="row">
     <% if current_user.costumes.present? %>
     <h2>You're lending these out!</h2>
     <h3>You pulled these out of your closet.</h3>
   </div>
+</div>
+
+
 <div class="container">
-  <div class="lend-board">
+  <div class="lendboard">
       <% current_user.costumes.each do |costume| %>
         <div class="image">
           <%=image_tag costume.photo %>
@@ -68,4 +77,5 @@
     </div>
   </div>
 </div>
-</div>
+
+//das
