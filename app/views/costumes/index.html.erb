@@ -12,11 +12,14 @@
 <% end %>
 </div>
 
-<%= form_with url: costumes_path, method: :get do %>
-<%= select_tag :filter, options_for_select([ "Show All", "Suits", "Costumes", "Cosplays" ], "Show All")
-  %>
-<%= submit_tag "Filter", class: "btn" %>
-<% end %>
+<div class="filter-dropdown">
+  <%= form_with url: costumes_path, method: :get do %>
+  <%= select_tag :filter, options_for_select([ "Show All", "Suits", "Costumes", "Cosplays" ], "Show All")
+    %>
+  <%= submit_tag "Filter", class: "filter-btn" %>
+  <% end %>
+</div>
+
 
 <!--
 <select name="Costume Type" class="category">
