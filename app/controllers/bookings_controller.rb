@@ -1,5 +1,6 @@
 class BookingsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
+  include Pundit::Authorization
 
   def create
     @costume = Costume.find(params[:costume_id])

@@ -17,6 +17,6 @@ class BookingPolicy < ApplicationPolicy
   def update?
     # true <= any user can see it
     # false <= no user can see it
-    record.user == current_user # <= only the owner of the booking can see it
+    record.costume.user == user # <= only the owner of the booking can edit it
   end
 end
