@@ -4,7 +4,7 @@
     margin-bottom: 20px;
 }
 
-input[type="submit" i] {
+#upload_button {
   margin: 15px auto;
   padding: 10px 15px;
   text-align: center;
@@ -16,7 +16,7 @@ input[type="submit" i] {
   display: block
 }
 
-input[type="submit" i]:hover {
+#upload_button:hover {
   color: white;
   background-color: #fb6f92;
   transform: scale(1.04);
