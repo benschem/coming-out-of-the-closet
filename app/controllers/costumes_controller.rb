@@ -1,6 +1,8 @@
 class CostumesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: [:index, :show, :notice]
   include Pundit::Authorization
+
+  after_action :verify_authorized, except: [:index, :notice], unless: :skip_pundit?
 
   def index
     @costumes = policy_scope(Costume)
@@ -26,6 +28,9 @@ class CostumesController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def notice
   end
 
   def edit; end

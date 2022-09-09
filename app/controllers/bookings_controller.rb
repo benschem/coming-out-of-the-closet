@@ -8,7 +8,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     authorize @costume
     if @booking.save
-      redirect_to costume_path(@costume), notice: "Booking saved"
+      redirect_to costumes_notice_path
     else
       render "costumes/show", status: :unprocessable_entity
     end

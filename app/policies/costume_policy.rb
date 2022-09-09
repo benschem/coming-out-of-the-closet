@@ -10,6 +10,10 @@ class CostumePolicy < ApplicationPolicy
     true
   end
 
+  def notice?
+    true
+  end
+
   def create?
     true
   end
