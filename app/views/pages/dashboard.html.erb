@@ -12,7 +12,11 @@
         </div>
         <div class="col">
           <h4><%= booking.costume.name %></h4>
-          <p>This booking is <%= booking.status %>.</p>
+          <% if booking.status.nil? %>
+            <p>This booking is pending.</p>
+          <% else %>
+            <p>This booking is <%= booking.status %>.</p>
+          <% end %>
           <p>Borrow it on <%= booking.start_date.strftime("%A %B %e, %Y") %>.</p>
           <p>Return it by <%= booking.end_date.strftime("%A %B %e, %Y") %>.</p>
           <p>It's costing you $<%= booking.costume.price %> per night.</p>
