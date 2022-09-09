@@ -1,102 +1,32 @@
-.lend-board {
+.lendboard {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.lendboard h2 {
+  text-align: center;
+  font-size: 18px;
+}
+
+.booking-card {
+  display: flex;
+  width: 45%;
+  justify-content: center;
+  margin: 10px auto;
+  border: 2px solid #fb6f92;
+  border-radius: 10px;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.costume-desc {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 10px;
-  box-shadow: 0 0 10px grey;
-  border-radius: 10px;
-  width: 500px;
 }
 
-.lend-board h4, h2, h3 {
-  text-align: center;
-}
-
-.lend-board h4 {
-  font-size: 14px;
-  font-weight: 500px;
-}
-
-.lend-board h3 {
-  font-size: 16px;
-  color: #FB6F92;
-  font-weight: 500;
-  margin: 0;
-}
-
-.bookings p {
-  font-size: 12px;
-  font-weight: 500px;
-  color: black;
-}
-
-.lend-board img {
-  width: 150px;
-  height: 150px;
-  border-radius: 5px;
-  margin: 10px,
-}
-
-.lend-info {
-  opacity: .7;
-  justify-content: center;
-}
-
-.bookings {
-  justify-content: center;
-  color: black;
-}
-
-.lend-board .buttons  {
-  justify-content: center;
-  display: flex;
-  flex-direction: row;
-}
-
-.lend-board .btn {
-  margin: 15px;
-  padding: auto;
-  text-align: center;
-  font-weight: 700;
+.costume-desc h4 {
   color: #fb6f92;
-  border: 2px solid #fb6f92;
-  width: 30%;
-  transition: all 0.15s;
-  display: row
+  font-weight: 700;
+  margin-bottom: 10px;
 }
-
-.lend-board .btn a {
-  text-decoration: none;
-}
-
-.lend-board .btn:hover {
-  color: white;
-  background-color: #fb6f92;
-  transform: scale(1.04);
-}
-
-// .card-product {
-//   display: flex;
-//   margin: 10px;
-//   box-shadow: 0 0 10px grey;
-//   border-radius: 10px;
-//   width: 500px;
-// }
-
-// .card-product img {
-//   width: 150px;
-//   height: 150px;
-//   border-radius: 10px 0 0 5px;
-// }
-
-// .card-product h2 {
-//   font-weight: bold;
-//   color: black;
-// }
-
-// .card-product div {
-//   opacity: .7;
-//   justify-content: left;
-//   padding: 20px 0 0 50px;
-//   font-size: 14px;
-// }
