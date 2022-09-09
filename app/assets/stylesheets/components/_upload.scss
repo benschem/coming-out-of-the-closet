@@ -1,0 +1,27 @@
+.upload {
+    color: #fb6f92;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+input[type="submit" i] {
+  margin: 15px auto;
+  padding: 10px 15px;
+  text-align: center;
+  font-weight: 700;
+  color: #fb6f92;
+  border: 2px solid #fb6f92;
+  width: 66%;
+  transition: all 0.15s;
+  display: block
+}
+
+input[type="submit" i]:hover {
+  color: white;
+  background-color: #fb6f92;
+  transform: scale(1.04);
+}
+
+.title {
+  margin-top: 30px;
+}
