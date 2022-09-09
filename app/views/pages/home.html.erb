@@ -3,22 +3,6 @@
     <h1>Come Out of the Closet</h1>
     <h2>Let your clothes show their true colours!</h2>
     <p>Hire a costume, suit or cosplay outfit.</p>
-
-<!-- Uncomment this if you want a search bar in the main page
-  <div class="search">
-    <div class="search-bar">
-      <%= form_with url: costumes_path, method: :get, class: "d-flex" do %>
-      <%= text_field_tag :query,
-        params[:query],
-        class: "form-control",
-        placeholder: "Bring out the real you"
-      %>
-      <%= submit_tag "Find Your Fit", class: "btn"%>
-    </div>
-      <% end %>
-  </div>
--->
-
     <%= link_to "view all costumes", costumes_path, class: "btn-home" %>
     <%= link_to "upload a costume for hire", new_costume_path, class: "btn-home" %>
   </div>
