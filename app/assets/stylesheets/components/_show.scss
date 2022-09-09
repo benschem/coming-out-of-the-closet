@@ -32,6 +32,15 @@
   margin-bottom: 35px;
 }
 
+.date-start {
+  width: 20%;
+}
+
+.date-end {
+  width: 20%;
+  margin-bottom: 10px;
+}
+
 .show-details h4 {
   margin-bottom: 10px;
 }
@@ -41,15 +50,20 @@
 }
 
 .show-details .flatpickr-input {
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   border-radius: 5px;
+  justify-content: left;
+}
+
+.show-details p {
+  margin-bottom: 10px;
 }
 
 .show-details .btn-primary {
   background-color: #FB6F92;
   border: 2px solid #FB6F92;
   border-radius: 5px;
-  margin: 0 8px;
+  margin: 0;
   box-shadow: 0 0 2px #FB6F92;
   transition: all 0.2s;
 }
@@ -59,7 +73,7 @@
   border: 2px solid #FB6F92;
   color: #FB6F92;
   font-weight: 700;
-  margin: 0 8px;
+  margin: 0;
   box-shadow: 0 0.5em 0.5em -0.4em #FB6F92;
   transform: translateY(-0.1em);
   cursor: pointer;
@@ -75,5 +89,5 @@
 }
 
 .back {
-  margin-top: 5px;
+  margin-top: 15px;
 }
