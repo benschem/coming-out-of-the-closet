@@ -1,7 +1,7 @@
 <div class="lendboard">
   <div class="intro">
     <h1>Hello <%= current_user.username %></h1>
-    <h1>Rentals</h1>
+    <h1>Borrowing</h1>
     <% if current_user.bookings.present? %>
       <h2>You're borrowing these! - I'm sure they'll look good on you.</h2>
   </div>
@@ -33,7 +33,7 @@
   </div>
 
 <div class="row">
-  <h1>Borrows</h1>
+  <h1>Lending</h1>
     <% if current_user.costumes.present? %>
     <h2>You're lending these out!</h2>
     <h3>You pulled these out of your closet.</h3>
