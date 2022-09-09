@@ -1,5 +1,8 @@
-hello
-
+<div class="title">
+  <h2>Update your look.</h2>
+  <h3>Let the world know the new you!</h3>
+</div>
+<div class="edit">
 <%= simple_form_for(@costume) do |f| %>
   <% clothing = ["Suits", "Costumes", "Cosplays"] %>
   <%= f.input :name %>
@@ -7,5 +10,6 @@ hello
   <%= f.input :price %>
   <%= f.input :clothing, collection: clothing %>
   <%= f.input :photo, as: :file, input_html: {multiple: false} %>
-  <%= f.submit %>
+  <%= f.submit id: "edit_button" %>
 <% end %>
+</div>
