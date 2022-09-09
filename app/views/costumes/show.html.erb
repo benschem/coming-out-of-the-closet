@@ -1,19 +1,18 @@
 <div class="container">
   <div class="row mt-3">
     <div class="col">
-      <%= cl_image_tag @costume.photo.key, height: 500, width: 350 %>
+      <% if @costume.photo.attached?  %>
+        <%= cl_image_tag @costume.photo.key, height: 500, width: 350, class:"rounded shadow" %>
+      <% else %>
+        <%= cl_image_tag "https://cdn-icons-png.flaticon.com/512/1124/1124043.png" %>
+      <% end %>
     </div>
     <div class="col">
       <h1><%= @costume.name %></h1>
-      <%= link_to "Delete",
-        costume_path(@costume),
-        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-      %>
-      <h4>Price: $<%= @costume.price %></h4>
-      <h5>Owner: <%= @costume.user.username %></h5>
+      <h4>$<%= @costume.price %> per night</h4>
+      <h4>The owner is <%= @costume.user.username %></h4>
       <p><%= @costume.description %></p>
       <%= render 'bookings/new' %>
     </div>
   </div>
-
 </div>
