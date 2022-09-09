@@ -8,6 +8,11 @@
   font-size: 18px;
 }
 
+.lendboard h3 {
+  text-align: center;
+  font-size: 16px;
+}
+
 .booking-card {
   display: flex;
   width: 45%;
@@ -17,6 +22,10 @@
   border-radius: 10px;
   padding: 0;
   margin-bottom: 20px;
+}
+
+.booking-card img {
+  border-radius: 10px 0 0 10px !important;
 }
 
 .costume-desc {
