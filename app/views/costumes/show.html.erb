@@ -1,7 +1,7 @@
 <div class="show-container">
   <div class="show-img">
     <% if @costume.photo.attached?  %>
-      <%= cl_image_tag @costume.photo.key, height: 500, width: 350, class:"rounded shadow" %>
+      <%= cl_image_tag @costume.photo.key, height: 500, width: 350, class:"rounded shadow cos" %>
     <% else %>
       <%= cl_image_tag "https://cdn-icons-png.flaticon.com/512/1124/1124043.png" %>
     <% end %>
