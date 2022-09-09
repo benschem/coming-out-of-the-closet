@@ -21,28 +21,31 @@
     <% else %>
         <div class="col">
           <h2>You're not borrowing anything!</h2>
-          <h3>"Go! Get out there and pick a New You!"</h3>
+          <h3>Go! Get out there and pick a New You!</h3>
         </div>
     <% end %>
   </div>
   <div class="row">
+    <% if current_user.costumes.present? %>
     <h2>You're lending these out!</h2>
     <h3>You pulled these out of your closet.</h3>
   </div>
-  <div class="row">
-    <% if current_user.costumes.present? %>
+<div class="container">
+  <div class="lend-board">
       <% current_user.costumes.each do |costume| %>
-        <div class="col card-costume-info">
+        <div class="image">
           <%=image_tag costume.photo %>
         </div>
-        <div class="col">
-          <h4><%= costume.name %></h4>
-          <div class="btn btn-success"><%= link_to "Edit", edit_costume_path(costume) %></div>
-          <div class="btn btn-danger"><%= link_to "Delete", costume_path(costume), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></div>
-          <p><%= costume.description %></p>
+        <div class="lend-info">
+          <h3><%= costume.name %></h3>
+          <div class="buttons">
+          <div class="btn"><%= link_to "Edit", edit_costume_path(costume) %></div>
+          <div class="btn"><%= link_to "Delete", costume_path(costume), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></div>
+          </div>
+          <h4><%= costume.description %></h4>
           <p>You're asking $<%= costume.price %> per night.</p>
         </div>
-        <div class="col">
+        <div class="bookings">
           <h4><%= costume.name %>'s Bookings<h4>
           <% if costume.bookings.present? %>
             <% costume.bookings.each do |booking| %>
@@ -55,12 +58,14 @@
               <% end %>
             <% end %>
           <% else %>
-            <p>No bookings yet. Your clothes just need some time and encouragement.</p>
+            <p>No bookings yet. <br> Your clothes just need some time and encouragement.</p>
           <% end %>
         </div>
       <% end %>
     <% else %>
-      <p>There's nothing here! Go on, get some of those clothes out of your closet!</p>
+      <h2>There's nothing here! Go on, get some of those clothes out of your closet!</h2>
     <% end %>
+    </div>
   </div>
+</div>
 </div>
