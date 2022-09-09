@@ -6,6 +6,19 @@ class CostumesController < ApplicationController
 
   def index
     @costumes = policy_scope(Costume)
+    if params[:query].present?
+      @costumes = Costume.supersearch(params[:query])
+    else
+      @costumes = Costume.all
+    end
+
+    if params[:filter].present?
+      if params[:filter] == "Show All"
+        @costumes = Costume.all
+      else
+        @costumes = Costume.where("clothing ILIKE ?", "%#{params[:filter]}%")
+      end
+    end
   end
 
   def show
@@ -33,7 +46,11 @@ class CostumesController < ApplicationController
   def notice
   end
 
-  def edit; end
+  def edit
+    @costume = Costume.find(params[:id])
+    authorize @costume
+  end
+
 
   def update
     @costume.update(costume_params) # Will raise ActiveModel::ForbiddenAttributesError
@@ -42,6 +59,7 @@ class CostumesController < ApplicationController
 
   def destroy
     @costume = Costume.find(params[:id])
+    authorize @costume
     @costume.destroy
     redirect_to costume_path, status: :see_other
   end

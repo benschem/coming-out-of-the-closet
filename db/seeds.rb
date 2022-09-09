@@ -13,6 +13,7 @@ require "open-uri"
 puts "Cleaning database..."
 User.destroy_all # if Rails.en.development
 Costume.destroy_all # if Rails.en.development
+Booking.destroy_all # if Rails.en.development
 
 User.create!(
   username: "Music Mates",
@@ -25,7 +26,7 @@ puts "Created User: Music Mates, Email: music@mates.com, Password: 123456."
   user = User.create!(
     username: Faker::Name.name,
     email: Faker::Internet.email,
-    password: "Password12345"
+    password: "123456"
   )
   puts "\n"
   puts "Created User: #{user.username}, Email: #{user.email}, Password: #{user.password}."

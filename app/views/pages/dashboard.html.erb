@@ -1,34 +1,81 @@
-
-<h2>Hello<%= current_user.username %></h2>
-
-
-<h3>These are your bookings:</h3>
-  <ul>
-    <% current_user.bookings.each do |booking|%>
-    <li class="card-costume-info">
-    <%= cl_image_tag booking.costume.photo.key %></li>
-    <%= booking.costume.name %><br>
-    Borrowed on: <%= booking.start_date %><br>
-    Needs to be returned by: <%= booking.end_date %><br>
-
-    Status:
-    <%= booking.status %>
+<div class="lendboard">
+  <div class="intro">
+    <h1>Hello <%= current_user.username %></h1>
+    <% if current_user.bookings.present? %>
+      <h2>You're borrowing these! - I'm sure they'll look good on you.</h2>
+  </div>
+  <div class="bookings">
+      <% current_user.bookings.each do |booking|%>
+      <div class="booking-card">
+        <div class="col costume-photo">
+          <%= cl_image_tag booking.costume.photo.key, height: 300, width: 300, class: "rounded shadow cos" %>
+        </div>
+        <div class="col costume-desc">
+          <h4><%= booking.costume.name %></h4>
+          <% if booking.status.nil? %>
+           <p>This booking is pending.</p>
+          <% else %>
+            <p>This booking is <%= booking.status %>.</p>
+          <% end %>
+          <p>Borrow it on <%= booking.start_date.strftime("%A %B %e, %Y") %>.</p>
+          <p>Return it by <%= booking.end_date.strftime("%A %B %e, %Y") %>.</p>
+          <p>It's costing you $<%= booking.costume.price %> per night.</p>
+        </div>
+      </div>
+      <% end %>
+    <% else %>
+        <div class="col">
+          <h2>You're not borrowing anything!</h2>
+          <h3>Go! Get out there and pick a New You!</h3>
+        </div>
     <% end %>
-  </ul>
+  </div>
 
-<h3>These are your costumes:</h3>
+<div class="row">
+    <% if current_user.costumes.present? %>
+    <h2>You're lending these out!</h2>
+    <h3>You pulled these out of your closet.</h3>
+  </div>
+</div>
 
-<p>
-  <% current_user.costumes.each do |costume| %>
-    <%= costume.name %><br>
-    <%=image_tag costume.photo %><br>
-    <%= costume.description %><br>
-    <%= costume.price %>
-  <% end %>
-</p>
 
-Status
-available
-pending
-approved / rejected
-in use
+<div class="container">
+  <div class="lendboard">
+      <% current_user.costumes.each do |costume| %>
+        <div class="image">
+          <%=image_tag costume.photo %>
+        </div>
+        <div class="lend-info">
+          <h3><%= costume.name %></h3>
+          <div class="buttons">
+          <div class="btn"><%= link_to "Edit", edit_costume_path(costume) %></div>
+          <div class="btn"><%= link_to "Delete", costume_path(costume), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></div>
+          </div>
+          <h4><%= costume.description %></h4>
+          <p>You're asking $<%= costume.price %> per night.</p>
+        </div>
+        <div class="bookings">
+          <h4><%= costume.name %>'s Bookings<h4>
+          <% if costume.bookings.present? %>
+            <% costume.bookings.each do |booking| %>
+              <p>This booking is <%= booking.status %>.</p>
+              <p>They want it on <%= booking.start_date.strftime("%A %B %e, %Y") %>.</p>
+              <p>They give it back on <%= booking.end_date.strftime("%A %B %e, %Y") %>.</p>
+              <% if booking.status == "pending" %>
+                <div class="btn btn-primary"><%= link_to "Approve", booking_path(booking, status: 1), data: { turbo_method: :patch } %></div>
+                <div class="btn btn-danger"><%= link_to "Decline", booking_path(booking, status: 2), data: { turbo_method: :patch } %></div>
+              <% end %>
+            <% end %>
+          <% else %>
+            <p>No bookings yet. <br> Your clothes just need some time and encouragement.</p>
+          <% end %>
+        </div>
+      <% end %>
+    <% else %>
+      <h2>There's nothing here! Go on, get some of those clothes out of your closet!</h2>
+    <% end %>
+    </div>
+  </div>
+</div>
+
+//das

@@ -1,0 +1,97 @@
+.show-container {
+  margin: 0 auto;
+  display: flex;
+  width: 80%;
+  justify-content: center;
+}
+
+.cos {
+  object-fit: cover;
+}
+
+.show-img {
+  margin: 25px;
+  margin-top: 75px;
+}
+
+.show-details {
+  margin: 25px;
+  margin-top: 60px;
+  margin-left: 35px;
+}
+
+.show-details h1 {
+  margin-top: 10px;
+  text-align: left;
+  margin-bottom: 25px;
+}
+
+.show-details p {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-size: 14px;
+}
+
+#desc {
+  margin-bottom: 35px;
+}
+
+.date-start {
+  width: 20%;
+}
+
+.date-end {
+  width: 20%;
+  margin-bottom: 10px;
+}
+
+.show-details h4 {
+  margin-bottom: 10px;
+}
+
+.show-details h4 {
+  font-size: 18px;
+}
+
+.show-details .flatpickr-input {
+  margin-bottom: 10px;
+  border-radius: 5px;
+  justify-content: left;
+}
+
+.show-details p {
+  margin-bottom: 10px;
+}
+
+.show-details .btn-primary {
+  background-color: #FB6F92;
+  border: 2px solid #FB6F92;
+  border-radius: 5px;
+  margin: 0;
+  box-shadow: 0 0 2px #FB6F92;
+  transition: all 0.2s;
+}
+
+.show-details .btn-primary:hover {
+  background-color: white;
+  border: 2px solid #FB6F92;
+  color: #FB6F92;
+  font-weight: 700;
+  margin: 0;
+  box-shadow: 0 0.5em 0.5em -0.4em #FB6F92;
+  transform: translateY(-0.1em);
+  cursor: pointer;
+}
+
+#back-to-index {
+  text-decoration: none;
+  color: #FB6F92;
+}
+
+#back-to-index:hover {
+  text-decoration: underline;
+}
+
+.back {
+  margin-top: 15px;
+}
