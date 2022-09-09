@@ -1,18 +1,18 @@
-<div class="container">
-  <div class="row mt-3">
-    <div class="col">
-      <% if @costume.photo.attached?  %>
-        <%= cl_image_tag @costume.photo.key, height: 500, width: 350, class:"rounded shadow" %>
-      <% else %>
-        <%= cl_image_tag "https://cdn-icons-png.flaticon.com/512/1124/1124043.png" %>
-      <% end %>
-    </div>
-    <div class="col">
-      <h1><%= @costume.name %></h1>
-      <h4>$<%= @costume.price %> per night</h4>
-      <h4>The owner is <%= @costume.user.username %></h4>
-      <p><%= @costume.description %></p>
-      <%= render 'bookings/new' %>
+<div class="show-container">
+  <div class="show-img">
+    <% if @costume.photo.attached?  %>
+      <%= cl_image_tag @costume.photo.key, height: 500, width: 350, class:"rounded shadow" %>
+    <% else %>
+      <%= cl_image_tag "https://cdn-icons-png.flaticon.com/512/1124/1124043.png" %>
+    <% end %>
+  </div>
+  <div class="show-details">
+    <h1><%= @costume.name %></h1>
+    <h4>$<%= @costume.price %> per night | Owner: <%= @costume.user.username %></h4>
+    <p id="desc"><%= @costume.description %></p>
+    <%= render 'bookings/new' %>
+    <div class="back">
+      <a href="/costumes" id="back-to-index">Back to Costumes!</a>
     </div>
   </div>
 </div>

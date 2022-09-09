@@ -2,7 +2,6 @@
   <h2>Take it out of the closet.</h2>
   <h3>Let it free! Let it be!</h3>
 </div>
-<div class= "wrapper">
 <div class= "upload">
 <%= simple_form_for(@costume) do |f| %>
   <% clothing = ["Suits", "Costumes", "Cosplays"] %>
@@ -13,5 +12,4 @@
   <%= f.input :photo, as: :file, input_html: {multiple: false} %>
   <%= f.submit id: "upload_button"%>
 <% end %>
-</div>
 </div>

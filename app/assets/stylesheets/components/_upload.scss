@@ -5,13 +5,14 @@
 }
 
 #upload_button {
-  margin: 15px auto;
+  margin: 30px auto;
   padding: 10px 15px;
   text-align: center;
   font-weight: 700;
   color: #fb6f92;
   border: 2px solid #fb6f92;
-  width: 66%;
+  border-radius: 5px;
+  width: 60%;
   transition: all 0.15s;
   display: block
 }
@@ -19,9 +20,13 @@
 #upload_button:hover {
   color: white;
   background-color: #fb6f92;
-  transform: scale(1.04);
+  transform: scale(1.03);
 }
 
 .title {
   margin-top: 30px;
+}
+
+.form-control {
+  border-radius: 5px;
 }
